@@ -8,6 +8,7 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.spec.KeySpec;
 import java.util.Base64;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author Randika Navagamuwa
@@ -30,7 +31,7 @@ public class AES256Cipher implements CipherAPI {
 
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKey, new IvParameterSpec(INIT_VECTOR));
-            return Base64.getEncoder().encodeToString(cipher.doFinal(stringToBeEncrypted.getBytes("UTF-8")));
+            return Base64.getEncoder().encodeToString(cipher.doFinal(stringToBeEncrypted.getBytes(StandardCharsets.UTF_8)));
 
         } catch (Exception e) {
             throw new RuntimeException("Error while encrypting the string : " + stringToBeEncrypted, e);

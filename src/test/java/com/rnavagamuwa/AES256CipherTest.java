@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -35,7 +35,7 @@ public class AES256CipherTest {
 
         for (int i = 0; i < 100; i++) {
             new Random().nextBytes(array);
-            list.add(new Object[]{new String(array, Charset.forName("UTF-8"))});
+            list.add(new Object[]{new String(array, StandardCharsets.UTF_8)});
         }
 
         return list;
