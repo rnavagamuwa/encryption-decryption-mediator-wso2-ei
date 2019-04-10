@@ -6,9 +6,9 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
 import java.security.spec.KeySpec;
 import java.util.Base64;
-import java.nio.charset.StandardCharsets;
 
 /**
  * @author Randika Navagamuwa
@@ -31,7 +31,9 @@ public class AES256Cipher implements CipherAPI {
 
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKey, new IvParameterSpec(INIT_VECTOR));
-            return Base64.getEncoder().encodeToString(cipher.doFinal(stringToBeEncrypted.getBytes(StandardCharsets.UTF_8)));
+            return Base64
+                    .getEncoder()
+                    .encodeToString(cipher.doFinal(stringToBeEncrypted.getBytes(StandardCharsets.UTF_8)));
 
         } catch (Exception e) {
             throw new RuntimeException("Error while encrypting the string : " + stringToBeEncrypted, e);
@@ -49,7 +51,9 @@ public class AES256Cipher implements CipherAPI {
 
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, secretKey, new IvParameterSpec(INIT_VECTOR));
-            return new String(cipher.doFinal(Base64.getDecoder().decode(encryptedString)));
+            return new String(cipher.doFinal(Base64
+                    .getDecoder()
+                    .decode(encryptedString.getBytes(StandardCharsets.UTF_8))), StandardCharsets.UTF_8);
         } catch (Exception e) {
 
             throw new RuntimeException("Error while decrypting: " + encryptedString, e);
