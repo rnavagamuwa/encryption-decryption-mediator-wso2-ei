@@ -1,6 +1,6 @@
 # encryption-decryption-mediator-wso2-ei
 
-This mediator can used with [WSO2 Class Mediator](https://docs.wso2.com/display/EI600/Class+Mediator).
+This mediator can be used with [WSO2 Class Mediator](https://docs.wso2.com/display/EI600/Class+Mediator).
 
 ### Overview
 
