@@ -47,7 +47,7 @@
         <axis2.wso2.version>1.6.1.wso2v12</axis2.wso2.version>
         <synapse.version>2.1.7-wso2v7</synapse.version>
         <log4j.version>1.2.13</log4j.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
     <repositories>
         <repository>
