@@ -4,7 +4,7 @@ This mediator can be used with [WSO2 Class Mediator](https://docs.wso2.com/displ
 
 ### Overview
 
-Even though only AES256 is the only implemented algorithm here, any algorithm can be implemented according the 
+Even though AES256 is the only implemented algorithm here, any algorithm can be implemented according to the 
 requirement.
 
 ### How to use
